@@ -3,6 +3,8 @@ import VideoPlayer from "../components/video/VideoPlayer";
 import VideoSections from "../components/video/VideoSections";
 import data from "../data/videos.json";
 import { useParams } from "react-router-dom";
+import ScrollToTopButton from "../components/video/ScrollToTop";
+import ContentTabs from "../components/video/ContentTabs";
 
 function Video() {
 	const { id } = useParams();
@@ -10,7 +12,7 @@ function Video() {
 	const video = data.find((video) => {
     return video.id == id
 	})
-  console.log("🚀 ~ Video ~ video:", video)
+
   const sections = video.sections.map((section) => {
     return {
       ...section,
@@ -36,7 +38,7 @@ function Video() {
 		}
 	};
 	return (
-		<div className="bg-page-bg overflow-hidden w-full flex flex-col justify-start items-center">
+		<div className="bg-page-bg overflow-hidden w-full flex flex-col justify-start items-center ">
 			<VideoPlayer
 				url={video.videoLink}
 				sections={sections}
@@ -47,6 +49,10 @@ function Video() {
 				onSectionClick={handleSectionClick}
 				currentSection={currentSection}
 			/>
+			<div className="w-full fixed right-0 bottom-0 flex justify-end items-center gap-2">
+				<ScrollToTopButton />
+				<ContentTabs sections={sections} onSectionClick={handleSectionClick}/>
+			</div>
 		</div>
 	);
 }

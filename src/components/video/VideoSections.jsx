@@ -31,7 +31,7 @@ const VideoSections = ({ sections, onSectionClick }) => {
   return (
     <div className=" text-gray-400 flex flex-col justify-center items-center gap-10 py-4 px-10">
       {sections.map((section) => (
-        <div className="lg:w-2/4 flex flex-col justify-center items-start gap-4" key={section.id} onClick={() => sectionClick(section.start)}>
+        <div id={section.title.replace(" ","-")} className="lg:w-2/4 flex flex-col justify-center items-start gap-4" key={section.id} onClick={() => sectionClick(section.start)}>
           {/* <img src={section.thumbnail} alt={section.title} /> */}
           <div className="flex justify-start items-center gap-5">
             <h1 className="text-3xl font-bold font-inter">

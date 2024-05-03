@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import data from "../data/videos.json";
+import ScrollToTopButton from "../components/video/ScrollToTop";
 
 function VideosPage() {
 	// const sections = data.map(video => video.sections).flat();
@@ -38,6 +39,7 @@ function VideosPage() {
 				</>
 			))}
       </div>
+			<ScrollToTopButton />
 		</div>
 	);
 }
