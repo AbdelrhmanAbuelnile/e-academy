@@ -29,7 +29,7 @@ const VideoSections = ({ sections, onSectionClick }) => {
 
 
   return (
-    <div className=" text-gray-400 flex flex-col justify-center items-center gap-10 py-4 px-10">
+    <div className=" text-gray-400 flex flex-col justify-center items-center gap-10 mt-20 py-4 px-10">
       {sections.map((section) => (
         <div id={section.title.replace(" ","-")} className="lg:w-2/4 flex flex-col justify-center items-start gap-4" key={section.id} onClick={() => sectionClick(section.start)}>
           {/* <img src={section.thumbnail} alt={section.title} /> */}
@@ -37,7 +37,7 @@ const VideoSections = ({ sections, onSectionClick }) => {
             <h1 className="text-3xl font-bold font-inter">
               {section.title} 
             </h1>
-            <span className="text-xs font-medium flex justify-center items-center gap-2 hover:text-gray-100 px-2 py-1 border-2 border-gray-400 rounded-2xl hover-border-gray-100">
+            <span className="text-xs font-medium flex justify-center items-center gap-2 hover:text-gray-100 px-2 py-1 border-2 border-gray-400 rounded-2xl hover-border-gray-100 cursor-pointer">
               <FaPlay />
               <span>{formatTime(section.start)}</span>
             </span>

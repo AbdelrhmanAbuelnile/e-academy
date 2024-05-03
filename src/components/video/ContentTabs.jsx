@@ -1,41 +1,21 @@
+/* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
 import { Link, List } from "lucide-react";
 import { useRef, useState } from "react";
-import data from "../../data/videos.json";
-import { useParams } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 
 function ContentTabs({ sections, onSectionClick }) {
-	const { id } = useParams();
 	const linksRef = useRef(null);
 	const contentRef = useRef(null);
 	const [showLinks, setShowLinks] = useState(false);
 	const [showContent, setShowContent] = useState(false);
 	const [dataToShow, setDataToShow] = useState([]);
 
-	// function extractLinksFromSections(data, id) {
-	//   const sectionsData = [];
-	//   const video = data.find((vid) => vid.id == id);
-	//   if (video) {
-	//     video.sections.forEach((section) => {
-	//       const sectionData = {
-	//         sectionTitle: section.title || "Untitled Section",
-	//         links: []
-	//       };
-	//       if (section.links && Array.isArray(section.links)) {
-	//         sectionData.links = section.links;
-	//       }
-	//       sectionsData.push(sectionData);
-	//     });
-	//   }
-	//   return sectionsData;
-	// }
 
 	function handleDataToShow(e) {
 		if (e.target === linksRef.current) {
 			setShowLinks((prev) => !prev);
 			setShowContent(false);
-			setDataToShow(extractLinksFromSections(data, id));
 		} else if (e.target === contentRef.current) {
 			setShowLinks(false);
 			setShowContent((prev) => !prev);
@@ -57,12 +37,12 @@ function ContentTabs({ sections, onSectionClick }) {
 	};
 
 	return (
-		<motion.div className="fixed right-0 bottom-0 flex flex-col w-1/4 rounded-tl-xl rounded-tr-xl shadow-[#000] shadow-xl ">
-			<div className="w-full flex justify-center items-center">
+		<motion.div className="fixed right-0 bottom-0 z-20 flex flex-col w-full lg:w-1/4 rounded-tl-xl rounded-tr-xl shadow-[#000] shadow-xl ">
+			<div className="w-full flex justify-center items-center gap-0 bg-page-bg rounded-tl-xl rounded-tr-xl">
 				<div
 					ref={linksRef}
 					onClick={handleDataToShow}
-					className={`w-1/2 px-4 py-3 hover:hover:bg-[#222] rounded-tl-xl cursor-pointer ${
+					className={`w-1/2 px-4 py-3 bg-page-bg hover:hover:bg-[#222] rounded-tl-xl rounded-tr-xl cursor-pointer ${
 						showLinks ? "bg-[#222]" : ""
 					}`}
 				>
@@ -76,7 +56,7 @@ function ContentTabs({ sections, onSectionClick }) {
 				<div
 					ref={contentRef}
 					onClick={handleDataToShow}
-					className={`w-1/2 px-4 py-3 hover:hover:bg-[#222] rounded-tr-xl cursor-pointer ${
+					className={`w-1/2 px-4 py-3 bg-page-bg hover:hover:bg-[#222] rounded-tr-xl cursor-pointer ${
 						showContent ? "bg-[#222]" : ""
 					}`}
 				>

@@ -49,7 +49,7 @@ function Video() {
 				onSectionClick={handleSectionClick}
 				currentSection={currentSection}
 			/>
-			<div className="w-full fixed right-0 bottom-0 flex justify-end items-center gap-2">
+			<div className="w-screen fixed right-0 bottom-0 flex justify-end items-center gap-2">
 				<ScrollToTopButton />
 				<ContentTabs sections={sections} onSectionClick={handleSectionClick}/>
 			</div>
