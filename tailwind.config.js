@@ -10,6 +10,10 @@ export default {
         "vid-player-bg": "#1E1E1E",
         "vid-player-controls-bg": "#0B0B0B",
         "page-bg": "#1A1A1A",
+      },
+      fontFamily:{
+        "roboto": ["Roboto", "sans-serif"],
+        "inter": ["Inter", "sans-serif"],
       }
     },
   },

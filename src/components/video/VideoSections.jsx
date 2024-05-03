@@ -9,7 +9,7 @@ const VideoSections = ({ sections, onSectionClick }) => {
     const urlRegex = /(https?:\/\/[^\s]+)/g;
     return description.split(' ').map((word, index) => {
         if (word.match(urlRegex)) {
-            return <a key={index} href={word} target="_blank" rel="noopener noreferrer">{word}</a>;
+            return <a key={index} href={word} target="_blank" rel="noopener noreferrer" className="text-[#b08aff] hover:underline">{word}</a>;
         } else {
             return word;
         }
@@ -29,25 +29,25 @@ const VideoSections = ({ sections, onSectionClick }) => {
 
 
   return (
-    <div className=" text-gray-400 flex flex-col justify-center items-start gap-10 py-4 px-10">
+    <div className=" text-gray-400 flex flex-col justify-center items-center gap-10 py-4 px-10">
       {sections.map((section) => (
-        <div className="flex flex-col justify-center items-start gap-4" key={section.id} onClick={() => sectionClick(section.start)}>
+        <div className="lg:w-2/4 flex flex-col justify-center items-start gap-4" key={section.id} onClick={() => sectionClick(section.start)}>
           {/* <img src={section.thumbnail} alt={section.title} /> */}
           <div className="flex justify-start items-center gap-5">
-            <h1 className="text-3xl font-bold">
+            <h1 className="text-3xl font-bold font-inter">
               {section.title} 
             </h1>
-            <span className="text-sm flex justify-center items-center gap-2 hover:text-gray-100 px-2 py-1 border border-gray-400 rounded-2xl hover-border-gray-100">
+            <span className="text-xs font-medium flex justify-center items-center gap-2 hover:text-gray-100 px-2 py-1 border-2 border-gray-400 rounded-2xl hover-border-gray-100">
               <FaPlay />
               <span>{formatTime(section.start)}</span>
             </span>
             </div>
-            <p className="w-2/4">{createDescriptionWithLinks(section.description)}</p>
+            <p className="text-base">{createDescriptionWithLinks(section.description)}</p>
             {section?.links?.map((link) =>(
               <>
               <ul className="ul">
                 <li className="li">
-                  <a href={link} target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-600 underline">{link}</a>
+                  <a href={link} target="_blank" rel="noreferrer" className="text-[#b08aff] hover:underline">{link}</a>
                 </li>
               </ul>
               </>
