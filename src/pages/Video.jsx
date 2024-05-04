@@ -38,7 +38,7 @@ function Video() {
 		}
 	};
 	return (
-		<div className="bg-page-bg overflow-hidden w-full flex flex-col justify-start items-center ">
+		<div className="bg-page-bg overflow-hidden w-full flex flex-col justify-start items-center">
 			<VideoPlayer
 				url={video.videoLink}
 				sections={sections}

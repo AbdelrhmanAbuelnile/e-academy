@@ -88,9 +88,7 @@ const VideoPlayer = ({ url, sections, onProgress }) => {
 
 			{/* controls */}
 			<div
-				className={`flex justify-between items-center gap-5 px-2 absolute  bg-vid-player-controls-bg w-full py-2 ${
-					isFullScreen ? "lg:-bottom-0" : "lg:bottom-[40px]"
-				}`}
+				className={`flex justify-between items-center gap-5 px-2 absolute  bg-vid-player-controls-bg w-full py-2`}
 			>
 				<div className="flex justify-start items-center gap-4">
 					{playerRef.current?.getInternalPlayer() &&

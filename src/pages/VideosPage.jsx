@@ -4,7 +4,7 @@ import data from "../data/videos.json";
 function VideosPage() {
 
 	return (
-		<div className="overflow-hidden bg-page-bg min-h-screen p-4 lg:px-10 lg:py-20">
+		<div className="mt-32 overflow-hidden bg-page-bg p-4 lg:px-10 w-full">
       <div className="flex justify-center items-center gap-10 flex-wrap">
 
 			{data?.map((video) => (
